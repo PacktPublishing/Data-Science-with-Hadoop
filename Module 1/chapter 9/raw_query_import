@@ -1,0 +1,6 @@
+sqoop import --connect jdbc:mysql://10.0.0.100/hadooptest --username hiveuser \
+--password password  --target-dir employees  \
+--query 'select first_name, dept, salary, timestamp(start_date) as start_date from employees where $CONDITIONS' \
+--hive-import --hive-table employees \
+--map-column-hive start_date=timestamp -m 1
+

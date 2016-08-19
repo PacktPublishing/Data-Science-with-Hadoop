@@ -1,0 +1,9 @@
+{ "type": "record",
+  "name": "UFO_Sighting_Record",
+  "fields" : [
+    {"name": "sighting_date", "type": "string"},
+    {"name": "city", "type": "string"},
+    {"name": "shape", "type": ["null", "string"]}, 
+    {"name": "duration", "type": "float"}
+] 
+}

@@ -1,0 +1,7 @@
+{ "type": "record",
+  "name": "UFO_Sighting_Record",
+  "fields" : [
+    {"name": "shape", "type": ["null", "string"]}, 
+    {"name": "count", "type": "long"}
+] 
+}

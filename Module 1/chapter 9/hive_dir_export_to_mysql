@@ -1,0 +1,6 @@
+sqoop export --connect jdbc:mysql://10.0.0.100/hadooptest --username hiveuser \
+--password password --table employees \
+--export-dir /user/hive/warehouse/employees \
+--input-fields-terminated-by '\001' \
+--input-lines-terminated-by '\n'
+

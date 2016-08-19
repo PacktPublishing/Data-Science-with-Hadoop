@@ -1,0 +1,31 @@
+package MasteringHadoop;
+ import org.apache.pig.EvalFunc;
+ import org.apache.pig.data.Tuple;
+ import java.io.IOException;
+ 
+ public class UPPER extends EvalFunc<String>{
+ 
+ 
+     @Override
+     public String exec(Tuple objects) throws IOException {
+ 
+        if(objects == null || objects.size() == 0){
+            return null;
+        }
+        try{
+            String inputString = (String) objects.get(0);
+            return inputString.toUpperCase();
+        }
+        catch(Exception ex){
+ 
+            throw new IOException("Error processing input ", ex);
+        }
+ 
+     }
+ }
+ 
+ register MasteringHadoop-1.0-SNAPSHOT-jar-with-dependencies.jar;
+ cc = load 'countrycodes.txt' using PigStorage(',') as (ccode:chararray, cname:chararray);
+ ccCapitalized = foreach cc generate MasteringHadoop.UPPER(cname);
+ 
+ 

@@ -1,0 +1,5 @@
+sqoop import --connect jdbc:mysql://10.0.0.100/hadooptest --username hiveuser \
+--password password --table employees \
+--columns first_name,salary --where "salary > 45000" \
+--hive-import --hive-table salary 
+

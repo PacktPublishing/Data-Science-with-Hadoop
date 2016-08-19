@@ -1,0 +1,5 @@
+cc = load 'countrycodes.txt' using PigStorage(',') as (ccode:chararray, cname:chararray); ccity = load 'worldcitiespop.txt' using PigStorage(',') as (ccode:chararray, cityName:chararray, cityFullName:chararray, region:int, population:long, lat:double, long:double);
+joinCountry = join cc by ccode, ccity by ccode; 
+store joinCountry into 'country-code-join-pig' using PigStorage(',');
+joinCountryFilter = filter joinCountry by INDEXOF(cc::ccode, 'a', 0) == 0 and population > 0;
+
